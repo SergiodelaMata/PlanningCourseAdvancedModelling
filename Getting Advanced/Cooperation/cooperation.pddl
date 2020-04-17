@@ -44,7 +44,6 @@
 	   :duration(= ?duration 1)
        :condition(and 
 					(at start (at-position ?d ?x ?y))
-					(at start (not(at-position ?uv ?x ?y)))
 				)
 	   :effect(and 
 					(at start (not(at-dock ?uv ?d)))
@@ -70,7 +69,6 @@
 		:duration(= ?duration 1)
         :condition(and
 					(at start (at-position ?uv ?x ?y))
-					(at start (not(is-taken-picture ?uv ?x ?y ?p ?t)))
         )
 		:effect (and 
 					(at end (is-taken-picture ?uv ?x ?y ?p ?t))
@@ -83,7 +81,6 @@
 		:duration(= ?duration 1)
  		:condition(at start (is-horizontal-pan ?uv ?pan1))
 		:effect(and
-					(at start (not(is-horizontal-pan ?uv ?pan1)))
 					(at end (is-horizontal-pan ?uv ?pan2))
 					(at end (increase (total-time-use) 1))
 				)
@@ -94,7 +91,6 @@
 		:duration(= ?duration 1)
 		:condition(at start (is-horizontal-tilt ?uv ?tilt1))
 		:effect(and
-					(at start (not(is-horizontal-tilt ?uv ?tilt1)))
 					(at end (is-horizontal-tilt ?uv ?tilt2))
 					(at end (increase (total-time-use) 1))
 				)
@@ -105,7 +101,6 @@
 		:duration(= ?duration 1)
 		:condition(at start (has-nav-mode ?uv ?mode1))
 		:effect(and
-					(at start (not(has-nav-mode ?uv ?mode1)))
 					(at end (has-nav-mode ?uv ?mode2))
 					(at end (increase (total-time-use) 1))
 				)
@@ -116,7 +111,6 @@
 		:duration(= ?duration 1)
 		:condition(and 
 						(at start (is-taken-picture ?uv ?x ?y ?p ?t))
-						(at start (not(is-picture-sent ?uv ?x ?y ?p ?t)))
 					)
 		:effect(and
 					(at end(is-picture-sent ?uv ?x ?y ?p ?t))
