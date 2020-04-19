@@ -2,27 +2,27 @@
 	(:requirements :strips :typing :equality :negative-preconditions :fluents 
 		:durative-actions :preferences :constraints)
 	(:types
-		dock - object
-		coordX coordY - object 
-		unmanned-vehicle - object
-        uav ugv - unmanned-vehicle
-        navmode - object
-        pan - object
-        tilt - object
+		dock - object ;; Objeto embarcadero
+		coordX coordY - object ;; Objeto coordenadas
+		unmanned-vehicle - object ;; Objeto vehículo no tripulado
+        uav ugv - unmanned-vehicle ;; Tipos de vehículos no tripulados
+        navmode - object ;; Objeto modo de navegación
+        pan - object ;; Objeto para la rotación del vehículo hacia arriba y/o hacia abajo
+        tilt - object ;; Objeto para la rotación del vehículo hacia la derecha y/o hacia la izquierda
 	)
 	(:predicates 
-		(at-position ?elem - (either dock unmanned-vehicle) ?x - coordX ?y - coordY)
-		(at-dock ?uv - unmanned-vehicle ?d - dock)
-		(has-nav-mode ?uv - unmanned-vehicle ?m - navmode)
-		(is-taken-picture ?uv - unmanned-vehicle ?x - coordX ?y - coordY ?p - pan ?t - tilt)
-		(is-picture-sent ?uv - unmanned-vehicle ?x - coordX ?y - coordY ?p - pan ?t - tilt)
-		(is-horizontal-pan ?uv - unmanned-vehicle ?p - pan)
-		(is-horizontal-tilt ?uv - unmanned-vehicle ?t - tilt)
+		(at-position ?elem - (either dock unmanned-vehicle) ?x - coordX ?y - coordY) ;; Predicado para conocer la posición de un embarcadero o vehículo no tripulado
+		(at-dock ?uv - unmanned-vehicle ?d - dock) ;; Predicado para conocer si un vehículo no tripulado está en un embarcadero
+		(has-nav-mode ?uv - unmanned-vehicle ?m - navmode) ;; Predicado para saber si un vehículo no tripulado tiene un modo de navegación 
+		(is-taken-picture ?uv - unmanned-vehicle ?x - coordX ?y - coordY ?p - pan ?t - tilt) ;; Predicado para saber si ha tomado una imagen un vehículo no tripulado
+		(is-picture-sent ?uv - unmanned-vehicle ?x - coordX ?y - coordY ?p - pan ?t - tilt) ;; Predicado para saber si ha transmitido una imagen un vehículo no tripulado
+		(is-horizontal-pan ?uv - unmanned-vehicle ?p - pan) ;; Predicado para saber la rotación pan de un vehículo no tripulado
+		(is-horizontal-tilt ?uv - unmanned-vehicle ?t - tilt) ;; Predicado para saber la rotación tilt de un vehículo no tripulado
 	)
 	(:functions 
-		(speed ?m - navmode)
-		(distance ?x1 - coordX ?y1 - coordY ?x2 - coordX ?y2 - coordY)
-		(total-time-use)
+		(speed ?m - navmode) ;; Función para saber la velocidad de un vehículo no tripulado cuando tiene un modo de navegación
+		(distance ?x1 - coordX ?y1 - coordY ?x2 - coordX ?y2 - coordY) ;; Función para conocer la distancia entre dos posiciones
+		(total-time-use) ;; Función para conocer el tiempo total usado para llegar a la meta
 		
 	)
 	;; Acción para aterrizar en una base un vehículo no tripulado
@@ -30,10 +30,12 @@
 	   :parameters(?d - dock ?uv -unmanned-vehicle ?x - coordX ?y - coordY)
 	   :duration(= ?duration 1)
        :condition(and
+	   ;; Ha de conocerse si las coordenadas tanto del embarcadero como del vehículo son las mismas
 					(at start (at-position ?d ?x ?y))
 					(at start (at-position ?uv ?x ?y))
 				)
 	   :effect(and
+	   ;; Se tiene en cuenta que ahora en vez de estar el vehículo en las coordenadas del embarcadero, se encuentra en el embarcadero y que ha aumentado el tiempo total usado
 					(at start (not(at-position ?uv ?x ?y)))
 					(at end (at-dock ?uv ?d))
 					(at end (increase (total-time-use) 1))
@@ -44,9 +46,12 @@
 	   :parameters(?d - dock ?uv -unmanned-vehicle ?x - coordX ?y - coordY)
 	   :duration(= ?duration 1)
        :condition(and 
+	   ;; Ha de conocerse si el vehículo se encuentra en embarcadero y el embarcadero se encuentra en la posición estudiada
+					(at start (at-dock ?uv ?d))
 					(at start (at-position ?d ?x ?y))
 				)
 	   :effect(and 
+	   ;; Se tiene en cuenta que ahora el vehículo ya no está en el dock y se encuentra en posición del dock y que el tiempo total usado ha aumentado
 					(at start (not(at-dock ?uv ?d)))
 					(at end (at-position ?uv ?x ?y))
 					(at end (increase (total-time-use) 1))
@@ -57,11 +62,13 @@
 		:parameters(?uv - unmanned-vehicle ?fromX - coordX  ?fromY - coordY ?toX - coordX ?toY - coordY ?mode - navmode)
 		:duration(= ?duration (/(speed ?mode)(distance ?fromX ?fromY ?toX ?toY)))
         :condition(and
+		;; Ha de conocerse si el vehículo tiene un modo de navegación, éste se encuentra en la posición de origen
 					(at start (has-nav-mode ?uv ?mode))
 					(at start (at-position ?uv ?fromX ?fromY))
-					(at start (has-nav-mode ?uv ?mode))
 				)
         :effect (and
+		;; Se tiene en cuenta que el vehículo inicialmente ya no está en la posición de origen y finalmente se encuentra en la posición final y aumenta 
+		;; el tiempo total de uso en relación a la velocidad del vehículo y la distancia entre la posición de origen y la de destino
 					(at start (not(at-position ?uv ?fromX ?fromY)))
 					(at end (at-position ?uv ?toX ?toY))
 					(at end (increase (total-time-use) (/(speed ?mode)(distance ?fromX ?fromY ?toX ?toY))))
@@ -72,11 +79,13 @@
         :parameters(?uv - unmanned-vehicle ?x - coordX ?y - coordY ?p - pan ?t - tilt)
 		:duration(= ?duration 1)
         :condition(and
+		;; Ha de conocerse si el vehículo tiene ajustados el pan y el tilt estudiados y el vehículo se encuentra en una posición
 					(at start (is-horizontal-pan ?uv ?p))
 					(at start (is-horizontal-tilt ?uv ?t))
 					(at start (at-position ?uv ?x ?y))
         )
 		:effect (and 
+		;; Se tiene en cuenta que el vehículo ya ha tomado una fotografía y que el tiempo total de uso ha aumentado
 					(at end (is-taken-picture ?uv ?x ?y ?p ?t))
 					(at end (increase (total-time-use) 1))
 				)
@@ -85,8 +94,11 @@
 	(:durative-action rotation-pan
 		:parameters(?uv - unmanned-vehicle ?pan1 ?pan2 - pan)
 		:duration(= ?duration 1)
+		;; Ha de conocerse si el vehículo tiene la horizontación pan inicial
  		:condition(at start (is-horizontal-pan ?uv ?pan1))
 		:effect(and
+		;; Se tiene en cuenta que inicialmente ya no tiene el vehículo la horizontación pan inicial y finalmente tiene la horizontación pan final además de
+		;; haber aumentado el tiempo total usado
 					(at start (not(is-horizontal-pan ?uv ?pan1)))
 					(at end (is-horizontal-pan ?uv ?pan2))
 					(at end (increase (total-time-use) 1))
@@ -96,8 +108,11 @@
 	(:durative-action rotation-tilt
 		:parameters(?uv - unmanned-vehicle ?tilt1 ?tilt2 - tilt)
 		:duration(= ?duration 1)
+		;; Ha de conocerse si el vehículo tiene la horizontación tilt inicial
 		:condition(at start (is-horizontal-tilt ?uv ?tilt1))
 		:effect(and
+		;; Se tiene en cuenta que inicialmente ya no tiene el vehículo la horizontación tilt inicial y finalmente tiene la horizontación pan final además de
+		;; haber aumentado el tiempo total usado
 					(at start (not(is-horizontal-tilt ?uv ?tilt1)))
 					(at end (is-horizontal-tilt ?uv ?tilt2))
 					(at end (increase (total-time-use) 1))
@@ -107,8 +122,11 @@
 	(:durative-action change-nav-mode
 		:parameters(?uv - unmanned-vehicle ?mode1 ?mode2 - navmode)
 		:duration(= ?duration 1)
+		;; Ha de conocerse si el vehículo tiene un modo de navegación inicial
 		:condition(at start (has-nav-mode ?uv ?mode1))
 		:effect(and
+		;; Se tiene en cuenta que inicialmente ya no tiene el vehículo el modo de navegación inicial y finalmente tiene el modo de navegación final además de
+		;; haber aumentado el tiempo total usado
 					(at start (not(has-nav-mode ?uv ?mode1)))
 					(at end (has-nav-mode ?uv ?mode2))
 					(at end (increase (total-time-use) 1))
@@ -119,11 +137,14 @@
 		:parameters(?uv - unmanned-vehicle ?x - coordX ?y - coordY ?p - pan ?t - tilt)
 		:duration(= ?duration 1)
 		:condition(and 
+		;; Ha de conocerse si el vehículo está en la posición estudiada, tiene unas horientaciones pan y tilt además de haber tomado un fotografía en dicha posición con las horientaciones previamente indicadas 
+						(at start (at-position ?uv ?x ?y))
 						(at start (is-horizontal-pan ?uv ?p))
 						(at start (is-horizontal-tilt ?uv ?t))
 						(at start (is-taken-picture ?uv ?x ?y ?p ?t))
 					)
 		:effect(and
+		;; Se tiene en cuenta que finalmente ya se ha enviado la fotografía y que el tiempo total de uso ha aumentado
 					(at end(is-picture-sent ?uv ?x ?y ?p ?t))
 					(at end (increase (total-time-use) 1))
 				)
