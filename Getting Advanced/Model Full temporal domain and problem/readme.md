@@ -1,0 +1,11 @@
+Planificación de un calendario escolar
+
+Una escuela desea realizar los calendarios escolares de una serie de grupos de distintos niveles asignando a cada profesor una serie de horas que debe realizar semanalmente con cada grupo.
+Se ha de tener en cuenta que cada día, los distintos grupos de alumnos tienen el mismo número de horas que deben estar en la escuela y cada profesor solo puede dar clase a cada grupo como máximo, una vez al día.
+También, es importante saber que las clases se hacen en un intervalo de tiempo, sin tener en cuenta los descansos que pudiera haber entre horas.
+Para ello, se ha pensado en tener en cuenta las posibles acciones que puede realizar cada profesor en relación con los distintos grupos de alumnos. Las acciones pensadas están relacionadas con la realización de una clase, que el profesor espere un determinado número de horas hasta que se termine el día o vaya a tener una clase y que ya se hayan acabado las clases de un día y que se tenga que considerar las clases del día siguiente.
+Además, se ha pensado que este problema se podría conseguir resolver si tuvieran en cuenta en su resolución los elementos día de la semana, clase (refiriéndose a las clases con un grupo de alumnos), profesor y números y predicados como que dos números son consecutivos o uno es mayor que otro, que una clase puede realizarse por un profesor un día de la semana para un grupo, que una clase puede realizarse en un intervalo de tiempo de un día a un grupo, la localización temporal y espacial de un profesor en un momento dado, si se trata de una clase en la que el profesor va a impartir clase o va a esperar a realizar una clase, las horas inicial y final de un día y si un profesor está disponible o no.
+Elaborar un dominio completamente temporal según este enunciado y elaborar dos problemas teniendo en cuenta lo siguiente.
+Primer problema: Cada semana cuenta con 5 días, cada día tiene 6 intervalos de clases, existen 3 grupos de alumnos y 6 profesores.
+Segundo problema: Cada problema tiene 3 días, cada día tiene 3 intervalos de clases, existen 2 grupos de alumnos y 3 profesores.
+Nota: Para una mayor facilidad en el problema, considerar que las horas son números y que haya dos predicados que distingan las clases entre clases de descanso para el profesor (c0) y clases en las que imparte una materia un profesor a un grupo (c1, c2, c3).
