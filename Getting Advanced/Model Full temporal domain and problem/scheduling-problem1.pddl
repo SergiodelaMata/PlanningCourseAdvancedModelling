@@ -4,7 +4,7 @@
 		d1, d2, d3, d4, d5 - date-week
 		c0, c1, c2, c3 - class
 		t1, t2, t3, t4, t5, t6 - teacher
-		h0, h1, h2, h3, h4, h5, h6, n0, n1, n2, n3, n4, n5 - number
+		h0, h1, h2, h3, h4, h5, h6, n0, n1, n2, n3, n4, n5 - numbers
 	)
 	
 	(:init
@@ -178,5 +178,5 @@
 			(num-classes n0 c1 t6)(num-classes n0 c2 t6)(num-classes n0 c3 t6)
 		)
 	)
-	(:metric minimize (total-time-teachers))
+	(:metric minimize (total-time-teachers)) ;; Minimizar por el tiempo total para realizar todas sus clases los profesores
 )
