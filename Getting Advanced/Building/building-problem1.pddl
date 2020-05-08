@@ -1,4 +1,4 @@
-(define (problem building-problem2)
+(define (problem building-problem1)
 	(:domain building)
 	(:objects
 		n0 n1 n2 n3 n4 n5 - number ;; Números cuya correspondencia sería n0 --> 0, n1 --> 1, ...
