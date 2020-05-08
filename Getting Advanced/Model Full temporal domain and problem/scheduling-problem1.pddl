@@ -6,7 +6,6 @@
 		t1, t2, t3, t4, t5, t6 - teacher
 		h0, h1, h2, h3, h4, h5, h6, n0, n1, n2, n3, n4, n5 - numbers
 	)
-	
 	(:init
 		;; Número por encima por otros
 		(greater n0 n1)(greater n0 n2)(greater n0 n3)(greater n0 n4)(greater n0 n5)

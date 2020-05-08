@@ -121,7 +121,6 @@
 						(at end (increase (total-time-teachers) (date-difference ?d1 ?d2))) ;; Incrementa el tiempo total entre todos los profesores
 					)
 		)
-		
 )
 							
 							
