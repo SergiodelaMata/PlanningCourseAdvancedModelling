@@ -60,39 +60,38 @@
 		
 		;; Clases que pueden realizarse por cada profesor, cada día
 		(class-can-be-made c1 d1 t1)(class-can-be-made c2 d1 t1)(class-can-be-made c3 d1 t1)
-		(class-can-be-made c1 d2 t1)(class-can-be-made c2 d2 t1)(class-can-be-made c3 d2 t1)
-		(class-can-be-made c1 d3 t1)(class-can-be-made c2 d3 t1)(class-can-be-made c3 d3 t1)
-		(class-can-be-made c1 d4 t1)(class-can-be-made c2 d4 t1)(class-can-be-made c3 d4 t1)
-		(class-can-be-made c1 d5 t1)(class-can-be-made c2 d5 t1)(class-can-be-made c3 d5 t1)
-		
 		(class-can-be-made c1 d1 t2)(class-can-be-made c2 d1 t2)(class-can-be-made c3 d1 t2)
-		(class-can-be-made c1 d2 t2)(class-can-be-made c2 d2 t2)(class-can-be-made c3 d2 t2)
-		(class-can-be-made c1 d3 t2)(class-can-be-made c2 d3 t2)(class-can-be-made c3 d3 t2)
-		(class-can-be-made c1 d4 t2)(class-can-be-made c2 d4 t2)(class-can-be-made c3 d4 t2)
-		(class-can-be-made c1 d5 t2)(class-can-be-made c2 d5 t2)(class-can-be-made c3 d5 t2)
-		
 		(class-can-be-made c1 d1 t3)(class-can-be-made c2 d1 t3)(class-can-be-made c3 d1 t3)
-		(class-can-be-made c1 d2 t3)(class-can-be-made c2 d2 t3)(class-can-be-made c3 d2 t3)
-		(class-can-be-made c1 d3 t3)(class-can-be-made c2 d3 t3)(class-can-be-made c3 d3 t3)
-		(class-can-be-made c1 d4 t3)(class-can-be-made c2 d4 t3)(class-can-be-made c3 d4 t3)
-		(class-can-be-made c1 d5 t3)(class-can-be-made c2 d5 t3)(class-can-be-made c3 d5 t3)
-		
 		(class-can-be-made c1 d1 t4)(class-can-be-made c2 d1 t4)(class-can-be-made c3 d1 t4)
-		(class-can-be-made c1 d2 t4)(class-can-be-made c2 d2 t4)(class-can-be-made c3 d2 t4)
-		(class-can-be-made c1 d3 t4)(class-can-be-made c2 d3 t4)(class-can-be-made c3 d3 t4)
-		(class-can-be-made c1 d4 t4)(class-can-be-made c2 d4 t4)(class-can-be-made c3 d4 t4)
-		(class-can-be-made c1 d5 t4)(class-can-be-made c2 d5 t4)(class-can-be-made c3 d5 t4)
-		
 		(class-can-be-made c1 d1 t5)(class-can-be-made c2 d1 t5)(class-can-be-made c3 d1 t5)
-		(class-can-be-made c1 d2 t5)(class-can-be-made c2 d2 t5)(class-can-be-made c3 d2 t5)
-		(class-can-be-made c1 d3 t5)(class-can-be-made c2 d3 t5)(class-can-be-made c3 d3 t5)
-		(class-can-be-made c1 d4 t5)(class-can-be-made c2 d4 t5)(class-can-be-made c3 d4 t5)
-		(class-can-be-made c1 d5 t5)(class-can-be-made c2 d5 t5)(class-can-be-made c3 d5 t5)
-		
 		(class-can-be-made c1 d1 t6)(class-can-be-made c2 d1 t6)(class-can-be-made c3 d1 t6)
+
+		(class-can-be-made c1 d2 t1)(class-can-be-made c2 d2 t1)(class-can-be-made c3 d2 t1)
+		(class-can-be-made c1 d2 t2)(class-can-be-made c2 d2 t2)(class-can-be-made c3 d2 t2)
+		(class-can-be-made c1 d2 t3)(class-can-be-made c2 d2 t3)(class-can-be-made c3 d2 t3)
+		(class-can-be-made c1 d2 t4)(class-can-be-made c2 d2 t4)(class-can-be-made c3 d2 t4)
+		(class-can-be-made c1 d2 t5)(class-can-be-made c2 d2 t5)(class-can-be-made c3 d2 t5)
 		(class-can-be-made c1 d2 t6)(class-can-be-made c2 d2 t6)(class-can-be-made c3 d2 t6)
+
+		(class-can-be-made c1 d3 t1)(class-can-be-made c2 d3 t1)(class-can-be-made c3 d3 t1)
+		(class-can-be-made c1 d3 t2)(class-can-be-made c2 d3 t2)(class-can-be-made c3 d3 t2)
+		(class-can-be-made c1 d3 t3)(class-can-be-made c2 d3 t3)(class-can-be-made c3 d3 t3)
+		(class-can-be-made c1 d3 t4)(class-can-be-made c2 d3 t4)(class-can-be-made c3 d3 t4)
+		(class-can-be-made c1 d3 t5)(class-can-be-made c2 d3 t5)(class-can-be-made c3 d3 t5)
 		(class-can-be-made c1 d3 t6)(class-can-be-made c2 d3 t6)(class-can-be-made c3 d3 t6)
+
+		(class-can-be-made c1 d4 t1)(class-can-be-made c2 d4 t1)(class-can-be-made c3 d4 t1)
+		(class-can-be-made c1 d4 t2)(class-can-be-made c2 d4 t2)(class-can-be-made c3 d4 t2)
+		(class-can-be-made c1 d4 t3)(class-can-be-made c2 d4 t3)(class-can-be-made c3 d4 t3)
+		(class-can-be-made c1 d4 t4)(class-can-be-made c2 d4 t4)(class-can-be-made c3 d4 t4)
+		(class-can-be-made c1 d4 t5)(class-can-be-made c2 d4 t5)(class-can-be-made c3 d4 t5)
 		(class-can-be-made c1 d4 t6)(class-can-be-made c2 d4 t6)(class-can-be-made c3 d4 t6)
+
+		(class-can-be-made c1 d5 t1)(class-can-be-made c2 d5 t1)(class-can-be-made c3 d5 t1)
+		(class-can-be-made c1 d5 t2)(class-can-be-made c2 d5 t2)(class-can-be-made c3 d5 t2)
+		(class-can-be-made c1 d5 t3)(class-can-be-made c2 d5 t3)(class-can-be-made c3 d5 t3)
+		(class-can-be-made c1 d5 t4)(class-can-be-made c2 d5 t4)(class-can-be-made c3 d5 t4)
+		(class-can-be-made c1 d5 t5)(class-can-be-made c2 d5 t5)(class-can-be-made c3 d5 t5)
 		(class-can-be-made c1 d5 t6)(class-can-be-made c2 d5 t6)(class-can-be-made c3 d5 t6)
 		
 		;; Clases que pueden realizarse por cada profesor, cada día
@@ -132,7 +131,10 @@
 		(class-can-be-done h5 h6 d5 c1)(class-can-be-done h5 h6 d5 c2)(class-can-be-done h5 h6 d5 c3)
 		
 		;; Profesor disponibles inicialmente
-		(available t1)(available t2)(available t3)(available t4)(available t5)
+		(available t1)(available t2)(available t3)(available t4)(available t5)(available t6)
+		
+		;; Clases de alumnos inicialmente sin clase
+		(free-class c1)(free-class c2)(free-class c3)
 		
 		;; Clases en las que tiene que dar clase un profesor a unos alumnos
 		(do-class c1)(do-class c2)(do-class c3)
@@ -175,6 +177,32 @@
 			(num-classes n0 c1 t4)(num-classes n0 c2 t4)(num-classes n0 c3 t4)
 			(num-classes n0 c1 t5)(num-classes n0 c2 t5)(num-classes n0 c3 t5)
 			(num-classes n0 c1 t6)(num-classes n0 c2 t6)(num-classes n0 c3 t6)
+			
+			;; Los profesores han realizado las clases que debían realizar los días que le correspondería
+			(class-made c1 t1 d1)(class-made c1 t1 d2)(class-made c1 t1 d3)(class-made c1 t1 d4)(class-made c1 t1 d5)
+			(class-made c2 t1 d1)(class-made c2 t1 d2)(class-made c2 t1 d3)(class-made c2 t1 d4)(class-made c2 t1 d5)
+			(class-made c3 t1 d1)(class-made c3 t1 d2)(class-made c3 t1 d3)(class-made c3 t1 d4)(class-made c3 t1 d5)
+			
+			(class-made c1 t2 d1)(class-made c1 t2 d2)(class-made c1 t2 d3)(class-made c1 t2 d4)(class-made c1 t2 d5)
+			(class-made c2 t2 d1)(class-made c2 t2 d2)(class-made c2 t2 d3)(class-made c2 t2 d4)(class-made c2 t2 d5)
+			(class-made c3 t2 d1)(class-made c3 t2 d2)(class-made c3 t2 d3)(class-made c3 t2 d4)(class-made c3 t2 d5)
+			
+			(class-made c1 t3 d1)(class-made c1 t3 d2)(class-made c1 t3 d3)(class-made c1 t3 d4)(class-made c1 t3 d5)
+			(class-made c2 t3 d1)(class-made c2 t3 d2)(class-made c2 t3 d3)(class-made c2 t3 d4)(class-made c2 t3 d5)
+			(class-made c3 t3 d1)(class-made c3 t3 d2)(class-made c3 t3 d3)(class-made c3 t3 d4)(class-made c3 t3 d5)
+			
+			(class-made c1 t4 d1)(class-made c1 t4 d2)(class-made c1 t4 d3)(class-made c1 t4 d4)(class-made c1 t4 d5)
+			(class-made c2 t4 d1)(class-made c2 t4 d2)(class-made c2 t4 d3)(class-made c2 t4 d4)(class-made c2 t4 d5)
+			(class-made c3 t4 d1)(class-made c3 t4 d2)(class-made c3 t4 d3)(class-made c3 t4 d4)(class-made c3 t4 d5)
+			
+			(class-made c1 t5 d1)(class-made c1 t5 d2)(class-made c1 t5 d3)(class-made c1 t5 d4)(class-made c1 t5 d5)
+			(class-made c2 t5 d1)(class-made c2 t5 d2)(class-made c2 t5 d3)(class-made c2 t5 d4)(class-made c2 t5 d5)
+			(class-made c3 t5 d1)(class-made c3 t5 d2)(class-made c3 t5 d3)(class-made c3 t5 d4)(class-made c3 t5 d5)
+			
+			(class-made c1 t6 d1)(class-made c1 t6 d2)(class-made c1 t6 d3)(class-made c1 t6 d4)(class-made c1 t6 d5)
+			(class-made c2 t6 d1)(class-made c2 t6 d2)(class-made c2 t6 d3)(class-made c2 t6 d4)(class-made c2 t6 d5)
+			(class-made c3 t6 d1)(class-made c3 t6 d2)(class-made c3 t6 d3)(class-made c3 t6 d4)(class-made c3 t6 d5)
+			
 		)
 	)
 	(:metric minimize (total-time-teachers)) ;; Minimizar por el tiempo total para realizar todas sus clases los profesores
