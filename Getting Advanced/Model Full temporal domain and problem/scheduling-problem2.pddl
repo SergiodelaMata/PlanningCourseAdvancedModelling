@@ -100,6 +100,7 @@
 		(= (total-time-teachers) 0)
 	)
 	(:goal
+	;; Todos los profesores deben haber dado todas sus clases a todos sus grupos de alumnos
 		(and
 			;; Número de clases ha realizar un profesor con un grupo
 			(num-classes n0 c1 t1)(num-classes n0 c2 t1)
