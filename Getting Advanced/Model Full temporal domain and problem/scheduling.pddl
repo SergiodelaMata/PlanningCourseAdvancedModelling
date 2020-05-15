@@ -8,28 +8,28 @@
 			numbers - object ;; Objeto número
 		)
 		(:predicates
-			(greater ?n1 ?n2 - numbers) ;; Número superior a otro
-			(next-number ?n1 ?n2 - numbers) ;; Siguiente número
-			(greater-date ?d1 ?d2 - date-week) ;; Un día está más avanzado en el tiempo que el otro
-			(class-made ?c - class ?t - teacher ?d - date-week) ;; Clase realizada por un profesor un día a un grupo
-			(class-hours-made ?h1 ?h2 - numbers ?c - class ?d - date-week) ;; Clase realizada a un grupo un día entre dos horas contiguas
-			(num-classes ?num - numbers ?c - class ?t - teacher) ;; Número de clases ha realizar un profesor a un grupo
-			(at-time-location ?h - numbers ?d - date-week ?t - teacher) ;; Localización temporal de un profesor un día a una hora
-			(at-location ?c - class ?t - teacher) ;; Localización espacial de un profesor
-			(class-can-be-made ?c - class ?d - date-week ?t - teacher) ;; Válida si una clase puede realizarse un día por un profesor a un día
-			(class-can-be-done ?h1 ?h2 - numbers ?d - date-week ?c - class) ;; Válida si se puede realizarse una clase en un intervalo de tiempo a una clase en un día
-			(available ?t - teacher) ;; Un profesor no se encuentra en clase o ya no puede dar más clases
-			(free-class ?c - class) ;; Indica que una clase no está teniendo clase en un momento dado
-			(do-class ?c - class) ;; Clases que se deben enseñar a los alumnos de un grupo
-			(rest-class ?c - class) ;; Clases en las que se puede esperar a dar clase
-			(initial-hour ?h - numbers) ;; Hora inicial de un día para empezar las clases
-			(last-hour ?h - numbers) ;; Hora final de un día para terminar las clases
-			(different-cero ?num - numbers) ;; Número distinto de cero
+			(greater ?n1 ?n2 - numbers) ;; Predicado para saber si un número es superior a otro
+			(next-number ?n1 ?n2 - numbers) ;; Predicado para conocer el siguiente número a otro
+			(greater-date ?d1 ?d2 - date-week) ;; Predicado para saber si un día está alejado en el tiempo con respecto a otro
+			(class-made ?c - class ?t - teacher ?d - date-week) ;; Predicado para saber si una clase ha sido realizada por un profesor un día a un grupo
+			(class-hours-made ?h1 ?h2 - numbers ?c - class ?d - date-week) ;; Predicado para saber si una clase ha sido realizada a un grupo un día entre dos horas contiguas
+			(num-classes ?num - numbers ?c - class ?t - teacher) ;; Predicado para saber el número de clases a realizar un profesor a un grupo
+			(at-time-location ?h - numbers ?d - date-week ?t - teacher) ;; Predicado para saber la localización temporal de un profesor un día a una hora
+			(at-location ?c - class ?t - teacher) ;; Predicado para saber la localización espacial de un profesor
+			(class-can-be-made ?c - class ?d - date-week ?t - teacher) ;; Predicado para validar si una clase puede realizarse un día por un profesor a un día
+			(class-can-be-done ?h1 ?h2 - numbers ?d - date-week ?c - class) ;; Predicado para validar si se puede realizarse una clase en un intervalo de tiempo a una clase en un día
+			(available ?t - teacher) ;; Predicado para saber si un profesor no se encuentra en clase
+			(free-class ?c - class) ;; Predicado para indica que una clase no está teniendo clase en un momento dado
+			(do-class ?c - class) ;; Predicado para identifica las clases que se deben enseñar a los alumnos de un grupo
+			(rest-class ?c - class) ;; Predicado para identificar las clases en las que se puede esperar a dar clase
+			(initial-hour ?h - numbers) ;; Predicado para saber la hora inicial de un día para empezar las clases
+			(last-hour ?h - numbers) ;; Predicado para saber la hora final de un día para terminar las clases
+			(different-cero ?num - numbers) ;; Predicado para conocer si un número es distinto de cero
 		)
 		(:functions
-			(date-difference ?d1 ?d2 - date-week) ;; Diferencia temporal entre dos días
-			(hour-difference ?h1 ?h2 - numbers) ;; Diferencia temporal entre dos horas
-			(total-time-teachers) ;; Tiempo total del sumatorio de horas que deben tenerse en cuenta de cada profesor esta que realice el total de horas que tiene que realizar con todos grupos en una semana
+			(date-difference ?d1 ?d2 - date-week) ;; Función para saber la diferencia temporal entre dos días
+			(hour-difference ?h1 ?h2 - numbers) ;; Función para saber la diferencia temporal entre dos horas
+			(total-time-teachers) ;; Función para saber el tiempo total del sumatorio de horas que deben tenerse en cuenta de cada profesor esta que realice el total de horas que tiene que realizar con todos grupos en una semana
 		)
 		;; Acción para permitir a un profesor realice una clase en un intervalo de tiempo de un día a un grupo de alumnos
 		(:durative-action make-class
@@ -76,10 +76,8 @@
 			:condition(and
 							(at start (= ?d1 ?d2)) ;; Mismo día
 							(at start (greater ?h1 ?h2)) ;; La segunda hora es superior a la primera
-							
 							(at start (at-time-location ?h1 ?d1 ?t)) ;; Localización temporal inicial de un profesor
 							(at start (at-location ?c1 ?t)) ;; Localización espacial inicial de un profesor
-							
 							(at start (available ?t)) ;; El profesor no está disponible para dar una clase mientras espera
 							(at start (rest-class ?c2)) ;; Se trata de una clase en la que se debe dar clase 
 						)
